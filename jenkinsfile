@@ -1,0 +1,27 @@
+
+pipeline{
+    agent any
+    environment {
+        TP ='10.0.73.120'
+    }
+    stages{
+        stage('Git Checkout'){
+            steps{
+                git branch:'feature_jen',credentialsId:'github',url:'https://github.com/Hemanthc12/project-cal'
+            }
+        }
+        stage('Maven'){
+            steps{
+                sh 'mvn clean package'
+            }
+        }
+        stage('Deploy'){
+            steps{
+                sshagent(['webser']){
+                    sh "scp -o StrictHostKeyChecking=no target/*.war ec2-user@$TP:/var/www/html"
+                    sh "ssh ec2-user@$TP systemctl restart httpd"
+                }
+            }
+        }
+    }
+}
