@@ -10,11 +10,6 @@ pipeline{
                 git branch:'main',credentialsId:'github',url:'https://github.com/Hemanthc12/project-cal'
             }
         }
-        stage('Maven'){
-            steps{
-                sh 'mvn clean package'
-            }
-        }
         stage('Deploy'){
             steps{
                 sshagent(['webser']){
