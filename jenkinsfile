@@ -7,7 +7,7 @@ pipeline{
     stages{
         stage('Git Checkout'){
             steps{
-                git branch:'feature_jen',credentialsId:'github',url:'https://github.com/Hemanthc12/project-cal'
+                git branch:'main',credentialsId:'github',url:'https://github.com/Hemanthc12/project-cal'
             }
         }
         stage('Maven'){
