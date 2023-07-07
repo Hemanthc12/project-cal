@@ -1,0 +1,21 @@
+{
+  "name": "project-cal",
+  "version": "1.0.0",
+  "description": "A simple JavaScript Calculator made by [Harsh Trivedi](https://harsh98trivedi.github.io)",
+  "main": "calc.js",
+  "scripts": {
+    "build": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hemanthc12/project-cal.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Hemanthc12/project-cal/issues"
+  },
+  "homepage": "https://github.com/Hemanthc12/project-cal#readme"
+}
