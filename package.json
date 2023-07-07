@@ -4,7 +4,7 @@
   "description": "A simple JavaScript Calculator made by [Harsh Trivedi](https://harsh98trivedi.github.io)",
   "main": "calc.js",
   "scripts": {
-    "build": "your-build-command"
+    "build": "your-build-command",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
