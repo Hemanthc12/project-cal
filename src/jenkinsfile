@@ -7,15 +7,15 @@ pipeline {
 
     stages {
         stage('Git Checkout') {
-            steps {
-                git branch: 'main', credentialsId: 'github', url: 'https://github.com/Hemanthc12/project-cal'
+            steps {                
+                git branch: 'dev', credentialsId: 'github', url: 'https://github.com/Hemanthc12/project-1'
             }
         }
 
         stage('Build') {
             steps {
+                sh 'npm init -y'
                 sh 'npm install' // Install project dependencies
-                sh 'npx webpack' // Run Webpack to bundle the JavaScript code
             }
         }
 

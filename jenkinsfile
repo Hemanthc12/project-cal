@@ -1,0 +1,30 @@
+pipeline {
+    agent any
+
+    environment {
+        TP = '10.0.157.107'
+    }
+
+    stages {
+        stage('Git Checkout') {
+            steps {                
+                git branch: 'dev', credentialsId: 'github', url: 'https://github.com/Hemanthc12/project-1'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                sh 'npm init -y'
+                sh 'npm install' // Install project dependencies
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                sshagent(['webser']) {
+                    sh "scp -o StrictHostKeyChecking=no -r /var/lib/jenkins/workspace/project-cal/src/* ec2-user@$TP:/var/www/html" // Copy bundled files to remote server
+                }
+            }
+        }
+    }
+}
